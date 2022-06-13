@@ -1,0 +1,105 @@
+@import "../variables-mixins.scss";
+
+.main-footer {
+  background-color: $main-title-bg;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__copyright-text {
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 18px;
+    color: $second-color;
+    margin: 0;
+    margin-right: 27px;
+  }
+
+  &__social-list {
+    @include list-reset;
+    display: flex;
+  }
+
+  &__social-item:not(:last-child) {
+    margin-right: 29px;
+  }
+
+  &__social-link {
+    display: block;
+    position: relative;
+    width: 28px;
+    height: 22px;
+  }
+
+  &__link-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+    width: 100%;
+
+    margin-top: 28px;
+    border-top: $footer-border;
+  }
+
+  &__academy-link {
+    line-height: 0;
+  }
+
+  &__logo:hover,
+  &__link-icon:hover {
+    fill: #46c1ae;
+  }
+
+  &__logo:active,
+  &__link-icon:active {
+    fill: #46c1ae;
+    opacity: 0.3;
+  }
+
+  &__academy-logo:hover {
+    fill: #46c1ae;
+  }
+
+  &__academy-logo:active {
+    fill: #46c1ae;
+    opacity: 0.3;
+  }
+
+  @media (max-width: ($tablet-width - 1)) {
+    padding-top: 27px;
+
+    &__logo-link {
+      @include visually-hidden-mixin;
+    }
+  }
+
+  @media (min-width: $tablet-width) {
+    @include general-padding;
+    padding-top: 51px;
+    padding-bottom: 58px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo-link {
+      line-height: 0;
+    }
+
+    &__copyright {
+      width: auto;
+      min-height: auto;
+      border: none;
+      margin: 0;
+    }
+  }
+}

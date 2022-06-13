@@ -1,0 +1,189 @@
+@import "../variables-mixins.scss";
+
+.reviews {
+  @media (max-width: ($tablet-width - 1)) {
+    @include general-padding;
+  }
+
+  position: relative;
+
+  padding-bottom: 51px;
+
+  &__list {
+    @include list-reset;
+    margin-top: 14px;
+  }
+
+  &__text {
+    margin: 0;
+    line-height: 30px;
+  }
+
+  &__author {
+    margin: 0;
+    margin-top: 33px;
+
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 24px;
+    color: $second-color;
+  }
+
+  &__username {
+    margin: 0;
+    margin-top: 3px;
+
+    font-size: 17px;
+    line-height: 30px;
+  }
+
+  &__buttons-wrapper {
+    display: flex;
+    margin-top: 30px;
+  }
+
+  &__button-to-left,
+  &__button-to-right {
+    height: 52px;
+    width: 50%;
+
+    border: $tablix-card-border;
+    background-color: transparent;
+    background-image: url("../img/arrow.svg");
+    background-repeat: no-repeat;
+    background-size: 50px 26px;
+    background-position: center;
+
+    cursor: pointer;
+  }
+
+  &__button-to-right {
+    transform: rotate(180deg);
+    border-right: none;
+  }
+
+  &__button {
+    margin-top: 38px;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: $mobile-body-padding * -1;
+    right: 0;
+    content: "";
+    height: 6px;
+    width: auto;
+    background-image: url("../img/curve-line.svg");
+    background-repeat: repeat-x;
+    background-size: contain;
+  }
+
+  ////////////////////////////////////                                                  TABLET
+  @media (min-width: $tablet-width) {
+    padding-bottom: 85px;
+
+    br {
+      display: none;
+    }
+
+    &__wrapper {
+      position: relative;
+
+      @media (max-width: ($desktop-width - 1)) {
+        @include general-padding;
+      }
+
+      padding-top: 79px;
+      min-height: 457px;
+      background: url("../img/index-page/reviews-bgi/review.jpg") no-repeat;
+
+      @media (min-resolution: 2dppx) {
+        background-image: url("../img/index-page/reviews-bgi/review@2x.jpg");
+        background-size: auto 457px;
+      }
+    }
+
+    &__review-and-buttons {
+      position: relative;
+    }
+
+    &__buttons-wrapper {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      min-width: 176px;
+    }
+
+    &__button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: auto;
+      min-width: 176px;
+      margin-top: 0;
+    }
+
+    &__button-to-left,
+    &__button-to-right {
+      border: none;
+    }
+
+    &__button-to-left:hover,
+    &__button-to-right:hover {
+      opacity: 0.6;
+    }
+
+    &__button-to-left:active,
+    &__button-to-right:active {
+      opacity: 0.3;
+    }
+
+    &__text {
+      margin-top: 40px;
+      font-size: 17px;
+      line-height: 30px;
+    }
+
+    &__author-wrapper {
+      margin-top: 61px;
+    }
+
+    &__author {
+      font-size: 18px;
+    }
+
+    &::after {
+      height: 17px;
+      background-image: url("../img/tablet-curve.svg");
+    }
+  }
+
+  ////////////////////////////////////           DESKTOP
+  @media (min-width: $desktop-width) {
+    @include general-padding;
+
+    &__wrapper {
+      padding-left: calc(100% / 6);
+    }
+
+    &__text {
+      margin-top: 32px;
+      padding-right: 70px;
+    }
+
+    &__author-wrapper {
+      margin-top: 44px;
+    }
+
+    &::after {
+      height: 23px;
+      left: $tablet-body-padding;
+      right: $tablet-body-padding;
+    }
+
+    &__author {
+      font-size: 17px;
+    }
+  }
+}

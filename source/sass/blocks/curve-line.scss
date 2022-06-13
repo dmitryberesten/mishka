@@ -1,0 +1,24 @@
+.curve-line {
+  height: 6px;
+  background-image: url("../img/curve-line.svg");
+  background-repeat: repeat-x;
+  background-size: contain;
+
+  @media (min-width: $tablet-width) {
+    height: 17px;
+  }
+}
+
+
+// &::after {
+//   position: absolute;
+//   bottom: 0;
+//   left: $mobile-body-padding * -1;
+//   right: 0;
+//   content: "";
+//   height: 6px;
+//   width: auto;
+//   background-image: url("../img/curve-line.svg");
+//   background-repeat: repeat-x;
+//   background-size: contain;
+// }

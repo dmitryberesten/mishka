@@ -1,0 +1,75 @@
+@import "../variables-mixins.scss";
+
+.index-title-wrapper {
+  position: relative;
+
+  &__main-title-text-wrapper {
+    min-height: 283px;
+    padding: 73px 0 120px;
+
+    @include general-padding;
+
+    background-image: url("../img/index-page/bgi/hero-mobile@1x.jpg");
+    background-repeat: no-repeat;
+
+    @media (min-resolution: 2dppx) {
+      background-image: url("../img/index-page/bgi/hero-mobile@2x.jpg");
+      background-position: center -17px;
+    }
+
+    background-color: $main-title-bg-mod;
+    background-position: center -16px;
+    background-size: auto 373px;
+  }
+
+  ////////////////////////////////////                               TABLET
+  @media (min-width: $tablet-width) {
+    padding-bottom: 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__main-title-text-wrapper {
+      background-image: url("../img/index-page/bgi/hero-desktop.jpg");
+      background-repeat: no-repeat;
+
+      @media (min-resolution: 2dppx) {
+        background-image: url("../img/index-page/bgi/hero-desktop@2x.jpg");
+      }
+
+      background-position: center -50px;
+      background-size: auto 746px;
+      padding: 104px 0 372px;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      content: "";
+      height: 24px;
+      width: auto;
+      background-image: url("../img/white-solid-curve.svg");
+      background-repeat: repeat-x;
+      background-size: contain;
+    }
+  }
+
+  ////////////////////////////////////               DESKOP
+  @media (min-width: $desktop-width) {
+    padding-bottom: 20px;
+
+    &::after {
+      background-image: url("../img/desktop-curve.svg");
+      height: 34px;
+    }
+
+    &__main-title-text-wrapper {
+      min-height: 577px;
+      padding-top: 108px;
+      padding-bottom: 355px;
+    }
+  }
+}

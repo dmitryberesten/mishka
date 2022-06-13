@@ -1,0 +1,41 @@
+@import "../variables-mixins.scss";
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: $body-color;
+
+  text-transform: uppercase;
+  text-decoration: none;
+
+  border: 2px solid $body-color;
+  background-color: inherit;
+
+  cursor: pointer;
+
+  &:visited {
+    color: $body-color;
+  }
+
+  &:hover {
+    background-color: $body-color;
+    color: $main-bg;
+  }
+
+  &:active {
+    background-color: $body-color;
+    color: fade-out($main-bg, 0.3);
+  }
+
+  &:focus {
+    outline: 2px solid $legend-color;
+  }
+}

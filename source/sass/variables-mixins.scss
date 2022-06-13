@@ -1,0 +1,58 @@
+$body-color: #444444; //основной цвет шрифта, также бордер у кнопки.
+$second-color: #000000;
+$legend-color: #63d1bb;
+
+$main-bg: #ffffff;
+$main-title-bg: #f1f1f1;//и подвал
+$main-title-bg-mod: #f9f9f9;//цвет в тон фона заголовка на главной
+$product-card-bg: #ededef;
+
+$header-border:  1px solid #e6e6e6; // сконвертировано из => rgba(0, 0, 0, 0.1)
+$header-mobile-border: 1px solid #ededed;
+$tablix-card-border: 1px solid #ececec;
+$footer-border:  1px solid #e5e5e5; // сконвертировано из => rgba(0, 0, 0, 0.1)
+$modal-border: 1px solid #c6c6c6;
+$modal-size-button-border: 2px solid fade-out($body-color, 0.9);
+
+$index-mini-catalog-color: $main-bg;
+$index-mini-catalog-bg: #63d1bb;
+$index-mini-catalog-bg2: #56c3b2;//а также "ТОВАР НЕДЕЛИ"
+
+$radio-dot: #62d1ba;//а также декор-линия справа от легенды филдсета
+
+//                                    БОКОВЫЕ ОТСТУПЫ
+$tablet-width: 768px;//                                      TABLET
+$desktop-width: 1150px;//                                                DESKTOP
+
+$mobile-body-padding: 30px;
+$tablet-body-padding: 50px;
+
+@mixin general-padding {
+  padding-left: $mobile-body-padding;
+  padding-right: $mobile-body-padding;
+
+  @media (min-width: $tablet-width) {
+    padding-left: $tablet-body-padding;
+    padding-right: $tablet-body-padding;
+  }
+}
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+@mixin visually-hidden-mixin {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+
+  border: 0;
+
+  clip: rect(0 0 0 0);
+}

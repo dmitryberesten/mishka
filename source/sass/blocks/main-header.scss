@@ -1,0 +1,398 @@
+@import "../variables-mixins.scss";
+
+.main-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+
+  &__logo-link {
+    line-height: 0;
+  }
+
+  &__logo-wrapper {
+    @include general-padding;
+    position: relative;
+    min-height: 79px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__list {
+    @include list-reset;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    @include general-padding;
+    min-height: 79px;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: ($tablet-width - 1)) {
+      border-top: $header-mobile-border;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 46px;
+    min-height: 50px;
+
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 24px;
+    text-decoration: none;
+    color: $second-color;
+  }
+
+  &__link:hover &__link-text {
+    opacity: 0.6;
+  }
+
+  &__link:active &__link-text {
+    opacity: 0.3;
+  }
+
+  &__link:hover &__item-icon {
+    fill: #63d1bb;
+    opacity: 1;
+  }
+
+  &__link:active &__item-icon {
+    fill: #63d1bb;
+    opacity: 0.3;
+  }
+
+  &__item-icon-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item-icon {
+    @media (max-width: ($tablet-width - 1)) {
+      position: absolute;
+      left: 0;
+    }
+  }
+
+  &__menu-toggle {
+    position: absolute;
+    right: $mobile-body-padding - 4px;
+
+    width: 36px;
+    height: 36px;
+    padding: 0;
+
+    cursor: pointer;
+
+    border: none;
+    background-color: inherit;
+  }
+
+  &__menu-toggle--open {
+    &::before {
+      content: "";
+      position: absolute;
+      width: 29px;
+      height: 2px;
+      background-color: #000000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 29px;
+      height: 2px;
+      background-color: #000000;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  &__menu-toggle--closed {
+    &::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 14px;
+      background-image: linear-gradient(#000000, 2px, #ffffff 2px, 6px, #000000 6px, 8px, #ffffff 8px, 12px, #000000 12px);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__desktop-appearing-list {
+    @media (max-width: ($desktop-width - 1)) {
+      @include visually-hidden-mixin;
+    }
+  }
+
+  &__tablet-appearing-text {
+    display: none;
+  }
+
+  @media (max-width: ($tablet-width - 1)) {
+    &__first-list--absolutly {
+      position: absolute;
+      top: 79px;
+      left: 0;
+      z-index: 1;
+      background-color: #ffffff;
+      width: 100%;
+    }
+
+    &__second-list--absolutly {
+      position: absolute;
+      top: 237px;
+      left: 0;
+      z-index: 1;
+      background-color: #ffffff;
+      width: 100%;
+    }
+  }
+
+  ////////////////////////////////////////////////////                     TABLET
+  @media (min-width: $tablet-width) {
+    &__logo {
+      width: 113px;
+      height: 46px;
+    }
+
+    &__logo-wrapper {
+      padding-top: 22px;
+      justify-content: start;
+    }
+
+    &__menu-toggle {
+      display: none;
+    }
+
+    &__tablet-appearing-text {
+      display: block;
+      margin: 0;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__second-list {
+      position: relative;
+      min-height: 89px;
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+
+      &::after {
+        content: "";
+        position: absolute;
+        border-bottom: $header-border;
+        width: 100vw;
+        bottom: 0;
+      }
+    }
+
+    &__second-list > &__item {
+      border-bottom: $header-border;
+      border-left: $header-border;
+      border-top: $header-border;
+
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &__link {
+      padding-left: 0;
+    }
+
+    $local-padding: 30px;
+    $for-first-list-padding: $tablet-body-padding - $local-padding;
+
+    &__first-list,
+    &__desktop-appearing-list {
+      padding-left: $for-first-list-padding;
+    }
+
+    &__first-list &__item,
+    &__desktop-appearing-list &__item {
+      margin-left: $local-padding;
+      padding-right: 0;
+      padding-left: 0;
+      min-height: 50px;
+    }
+
+    &__first-list &__link {
+      @media (max-width: ($desktop-width - 1)) {
+        font-size: 15px;
+        padding-top: 15px;
+      }
+    }
+
+    &__item-icon-wrapper {
+      margin-left: 32px;
+      margin-right: 32px;
+    }
+
+    &__second-list &__link-text {
+      padding-right: $tablet-body-padding;
+    }
+
+    &__tablet-hidden-text {
+      @include visually-hidden-mixin;
+    }
+
+    //////////////////////////////////////////////////                   TABLET GRID
+    display: grid;
+    justify-content: stretch;
+    grid-template-areas:
+      "logo second-list second-list second-list"
+      "first-list first-list tablet-text tablet-text";
+
+    .main-header__first-list {
+      grid-area: first-list;
+      width: 100%;
+      justify-self: start;
+
+      display: flex;
+      flex-wrap: wrap;
+      background-color: $main-title-bg;
+
+      &--index {
+        background-color: $main-title-bg-mod;
+      }
+    }
+
+    .main-header__second-list {
+      grid-area: second-list;
+      justify-self: end;
+    }
+
+    .main-header__logo-link {
+      grid-area: logo;
+      align-self: start;
+    }
+
+    .main-header__tablet-appearing-text {
+      grid-area: tablet-text;
+      padding-right: $tablet-body-padding;
+      background-color: $main-title-bg;
+
+      height: 100%;
+      display: flex;
+      padding-top: 18px;
+      justify-content: flex-end;
+
+      @media (max-width: ($desktop-width - 1)) {
+        &--index {
+          background-color: $main-title-bg-mod;
+        }
+      }
+    }
+  }
+
+  ////////////////////////////////////////////////////                   DESKTOP
+  @media (min-width: $desktop-width) {
+    &__logo {
+      width: 149px;
+      height: 72px;
+    }
+
+    &__logo-wrapper {
+      padding: 0;
+      padding-top: 9px;
+    }
+
+    $local-padding: 35px;
+    $for-first-list-padding: $tablet-body-padding - $local-padding;
+
+    &__first-list > &__item {
+      border-left: $header-border;
+      border-top: $header-border;
+      padding-left: $local-padding;
+      padding-right: $local-padding;
+      margin-left: 0;
+    }
+
+    &__first-list {
+      position: relative;
+    }
+
+    &__first-list::before {
+      position: absolute;
+      left: 0;
+      content: "";
+      width: $for-first-list-padding + 4;
+      height: 100%;
+      background-color: $main-bg;
+    }
+
+    &__desktop-appearing-list {
+      display: flex;
+      padding-left: $tablet-body-padding;
+    }
+
+    &__desktop-appearing-list &__item {
+      margin: 0;
+      margin-right: 60px;
+    }
+
+    &__desktop-appearing-list &__link {
+      font-size: 15px;
+      align-items: center;
+      padding: 0;
+      padding-top: 15px;
+    }
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 150px 1fr 1fr;
+    grid-template-areas:
+      "first-list first-list logo second-list second-list"
+      "third-list third-list third-list tablet-text tablet-text";
+
+    .main-header__first-list {
+      grid-area: first-list;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: $for-first-list-padding;
+      background-color: $main-bg;
+    }
+
+    .main-header__second-list {
+      grid-area: second-list;
+    }
+
+    .main-header__logo-link {
+      grid-area: logo;
+      align-self: start;
+    }
+
+    .main-header__tablet-appearing-text {
+      grid-area: tablet-text;
+
+      &--index {
+        background-color: $main-title-bg-mod;
+      }
+    }
+
+    .main-header__desktop-appearing-list {
+      grid-area: third-list;
+      background-color: $main-title-bg;
+
+      &--index {
+        background-color: $main-title-bg-mod;
+      }
+    }
+  }
+}

@@ -1,0 +1,231 @@
+@import "../variables-mixins.scss";
+
+.product-of-week {
+  @include general-padding;
+
+  position: relative;
+
+  padding-top: 31px;
+  padding-bottom: 42px;
+
+  &__title {
+    margin: 0;
+    margin-top: 4px;
+    margin-bottom: 17px;
+
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: $index-mini-catalog-bg;
+  }
+
+  &__list {
+    margin-top: 19px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    border-bottom: $tablix-card-border;
+  }
+
+  &__property {
+    width: 97px;
+  }
+
+  &__value {
+    margin: 0;
+  }
+
+  &__pic {
+    display: block;
+    margin: 0 auto;
+    margin-top: 27px;
+    object-fit: contain;
+  }
+
+  &__price {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 24px;
+    text-align: center;
+
+    margin: 0;
+    margin-top: 27px;
+  }
+
+  &__button {
+    margin-top: 25px;
+  }
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: $mobile-body-padding * -1;
+    right: 0;
+    content: "";
+    height: 6px;
+    width: auto;
+    background-image: url("../img/curve-line.svg");
+    background-repeat: repeat-x;
+    background-size: contain;
+  }
+
+  ////////////////////////////////////////////                  TABLET
+  @media (min-width: $tablet-width) and (max-width: ($desktop-width - 1)) {
+    padding-top: 40px;
+    padding-bottom: 69px;
+
+    &__grid-wrapper {
+      display: grid;
+      grid-template-areas:
+        "he3 he3 he3 he2"
+        "par par pic pic"
+        "dl dl pic pic"
+        "pr pr pic pic"
+        "btn btn pic pic";
+      column-gap: 42px;
+    }
+
+    &__second-title {
+      grid-area: he3;
+      align-self: center;
+    }
+
+    &__title {
+      grid-area: he2;
+      justify-self: self-end;
+      align-self: center;
+      text-align: center;
+      line-height: 17px;
+      width: 67px;
+      margin-right: 27px;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    &__description {
+      grid-area: par;
+      margin-top: 38px;
+      font-size: 17px;
+      line-height: 30px;
+    }
+
+    &__list {
+      grid-area: dl;
+    }
+
+    &__price {
+      grid-area: pr;
+      justify-self: center;
+      font-size: 20px;
+      margin-top: 50px;
+    }
+
+    &__picture-wrapper {
+      grid-area: pic;
+      justify-self: end;
+      margin-top: auto;
+    }
+
+    &__pic {
+      width: 334px;
+      height: 404px;
+      margin: 0;
+    }
+
+    &__button {
+      grid-area: btn;
+      align-self: end;
+      margin-top: 30px;
+    }
+
+    &::after {
+      height: 17px;
+      background-image: url("../img/tablet-curve.svg");
+    }
+  }
+
+  ////////////////////////////////////               DESKTOP
+  @media (min-width: $desktop-width) {
+    @include general-padding;
+    padding-top: 50px;
+    padding-bottom: 96px;
+
+    &__grid-wrapper {
+      margin-left: calc(100% / 6);
+      position: relative;
+      display: grid;
+      align-items: start;
+      column-gap: 58px;
+      grid-template-areas:
+        "txt pic"
+        "lst pic"
+        "lst pic"
+        "pr pic"
+        "pr pic"
+        "btn pic";
+    }
+
+    &__title {
+      position: absolute;
+      left: calc(100% / -6);
+      top: 69px;
+      max-width: calc((100% / 6 * 0.75));
+      text-align: center;
+      line-height: 17px;
+
+      margin: 0;
+    }
+
+    &__second-title {
+      position: absolute;
+      top: 60px;
+    }
+
+    &__description {
+      margin-top: 153px;
+      grid-area: txt;
+      font-size: 17px;
+      line-height: 30px;
+    }
+
+    &__list {
+      grid-area: lst;
+      grid-row: span 2;
+      margin-top: 26px;
+    }
+
+    &__price {
+      grid-area: pr;
+      grid-row: span 2;
+      align-self: end;
+      margin-top: 70px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    &__button {
+      grid-area: btn;
+      align-self: end;
+    }
+
+    &__picture-wrapper {
+      grid-area: pic;
+    }
+
+    &__pic {
+      margin-top: 0;
+      width: 525px;
+      height: 636px;
+    }
+
+    &::after {
+      height: 23px;
+      left: $tablet-body-padding;
+      right: $tablet-body-padding;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+@import "../variables-mixins.scss";
+
+.main-title-wrapper {
+  @include general-padding;
+
+  min-height: 177px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $main-title-bg;
+
+  @media (min-width: $tablet-width) {
+    min-height: 188px;
+    padding-bottom: 36px;
+
+    position: relative;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      content: "";
+      width: 100%;
+      height: 24px;
+      background: url("../img/white-solid-curve.svg") repeat-x;
+      background-size: cover;
+    }
+  }
+
+  @media (min-width: $desktop-width) {
+    &::after {
+      height: 34px;
+    }
+
+    min-height: 222px;
+    padding-bottom: 61px;
+  }
+}
